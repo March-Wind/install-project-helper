@@ -20,7 +20,13 @@ const tasks = new Listr<Ctx>([
         }
       },
       {
-        title: "init",
+        title: "init git",
+        task: () => {
+          return execa('git', ['init'])
+        }
+      },
+      {
+        title: "init husky",
         task: () => {
           return execa('npx', ['husky', 'install'])
         }
