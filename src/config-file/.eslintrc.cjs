@@ -131,7 +131,8 @@ module.exports = {
       ],
       rules: {
         '@typescript-eslint/no-unused-vars': 0,
-        'no-unused-vars': 0
+        'no-unused-vars': 0,
+        "no-var": 0
       }
     }
   ]
