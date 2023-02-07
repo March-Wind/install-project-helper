@@ -5,6 +5,8 @@ import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const prefix = path.resolve(__dirname,'../config-file/' );
+
 interface Ctx {
   /* some variables for internal use */
 }
@@ -54,18 +56,18 @@ const tasks = new Listr<Ctx>([
     title: 'install code lint',
     task: () => {
       return new Listr([{
-        title: "install depaendece package",
+        title: "Install depaendece package",
         task: () => {
           return execa('npm', ['i', '-D', 'lint-staged'])
         }
       },
       {
-        title: "add code lint hooks",
+        title: "Add code lint hooks",
         task: () => {
           return execa('npx', ['husky', 'add', '.husky/pre-commit', 'npx lint-staged'])
         }
       }, {
-        title: '',
+        title: 'Add command ',
         task: () => {
           const packagePath = path.resolve(process.cwd(), './package.json');
           let fileStat = null;
@@ -94,7 +96,12 @@ const tasks = new Listr<Ctx>([
           }
           fs.writeFileSync(packagePath, JSON.stringify(configObj, null, 4), { encoding: 'utf-8' });
         }
-      },])
+      },{
+        title:'config rule',
+        task: () => {
+          return execa('cp', [path.resolve(prefix, 'commitlint.config.cjs'), process.cwd()])
+        }
+      }])
     }
   },
 
