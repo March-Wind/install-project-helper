@@ -58,6 +58,7 @@ const run = async () => {
     2. dbaeumer.vscode-eslint 
     3. editorconfig.editorconfig,
     4. stylelint.vscode-stylelint
+    5. 还可以安装code-spell-checker来进行命名检查
     `))
 
   } catch (e) {
