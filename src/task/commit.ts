@@ -1,12 +1,7 @@
 import { Listr } from 'listr2'
 import { execa, execaSync } from 'execa'
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const prefix = path.resolve(__dirname,'../config-file/' );
-
+import path from 'path';
 interface Ctx {
   /* some variables for internal use */
 }
@@ -99,6 +94,7 @@ const tasks = new Listr<Ctx>([
       },{
         title:'config rule',
         task: () => {
+          const prefix = global.CONFIG_FILE_PATH;
           return execa('cp', [path.resolve(prefix, 'commitlint.config.cjs'), process.cwd()])
         }
       }])

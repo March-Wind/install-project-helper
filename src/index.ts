@@ -1,20 +1,22 @@
-import { Listr } from 'listr2'
-import { execa, execaSync } from 'execa'
-import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
+import { Listr } from 'listr2'
 import chalk from 'chalk';
 import eslintTask from './task/eslint'
 import pettierTask from './task/prettier'
 import styleTask from './task/styleint'
 import jestTask from './task/jest';
 import commitLintTask from './task/commit';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import {moduleType} from './utils'
+// const env = process.env.NODE_ENV;
+const _filename = moduleType () === 'esm'? fileURLToPath(import.meta.url): __filename;
+const _dirname = dirname(_filename);
+const prefix = path.resolve(_dirname,'config-file/' );
+console.log(1,prefix)
 interface Ctx {
   /* some variables for internal use */
 }
-
+global.CONFIG_FILE_PATH = prefix;
 
 const tasks = new Listr<Ctx>([
   {

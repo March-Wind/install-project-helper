@@ -1,16 +1,16 @@
 {
     "name": "@marchyang/project-helper",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "",
     "main": "./dist/mian.cjs",
     "bin":"./dist/main.cjs",
     "type": "module",
     "scripts": {
-        "dev": "node --loader ts-node/esm ./src/index.ts",
-        "dev2": "ts-node ./src/index.ts",
-        "dev:debug": " node --inspect-brk  --loader ts-node/esm ./src/index.ts",
+        "dev": "NODE_ENV=dev node --loader ts-node/esm ./src/index.ts",
+        "dev2": "NODE_ENV=dev ts-node ./src/index.ts",
+        "dev:debug": "NODE_ENV=dev node --inspect-brk  --loader ts-node/esm ./src/index.ts",
         "build:js": "npm run clean:lib && tsc && tsc-alias",
-        "build:prod": "webpack"
+        "build:prod": "NODE_ENV=prod webpack && cp -r ./src/config-file ./dist"
     },
     "author": "",
     "license": "ISC",
@@ -37,6 +37,7 @@
     "files": [
         "dist/*",
         "*.md",
+        "config-file/*",
         "package.json"
     ],
     "dependencies": {

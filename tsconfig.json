@@ -21,7 +21,7 @@
     "baseUrl": "./",
     "skipLibCheck": true,
     "moduleResolution": "Node",
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "strictPropertyInitialization": false,
     "strict": true,
     "lib": [
@@ -33,13 +33,17 @@
         "./src/*"
       ]
     },
+    "typeRoots": ["node_modules/@types", "src/global.d.ts"]
   },
   "include": [
     "./src/",
     ".eslintrc.cjs",
-    "webpack.config.js"
-  ],
+    "webpack.config.js", 
+    "src/global.d.ts"   ],
   "exclude": [
-    "./src/config-file/*.ts"
+    "src/config-file/*.ts"
+  ],
+  "files": [
+    "src/global.d.ts"
   ]
 }

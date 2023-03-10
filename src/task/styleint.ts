@@ -1,10 +1,7 @@
 import path, { dirname } from 'path';
 import { Listr } from 'listr2'
 import { execa, execaSync } from 'execa'
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const prefix = path.resolve(__dirname,'../config-file/' );
+
 interface Ctx {
   /* some variables for internal use */
 }
@@ -19,6 +16,7 @@ const tasks = new Listr<Ctx>([
   {
     title: 'copy ..stylelintrc file',
     task: () => {
+      const prefix = global.CONFIG_FILE_PATH;
       return execa('cp', [path.resolve(prefix, '.stylelintrc.js'), process.cwd()])
     }
   },

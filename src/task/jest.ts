@@ -1,11 +1,7 @@
 import { Listr } from 'listr2'
 import { execa, execaSync } from 'execa'
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const prefix = path.resolve(__dirname,'../config-file/' );
+import path from 'path';
 
 
 const jest_config_in_eslint = {
@@ -38,6 +34,7 @@ const tasks = new Listr<Ctx>([
         {
           title: "copy jest config file",
           task: () => {
+            const prefix = global.CONFIG_FILE_PATH;
             return execa('cp', [path.resolve(prefix, 'jest.config.ts'), process.cwd()])
           }
         },
