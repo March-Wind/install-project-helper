@@ -1,18 +1,22 @@
-
 module.exports = {
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
+    "react",
+    'react-hooks'
   ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react/recommended",
+    'plugin:react-hooks/recommended',
     "prettier"
   ],
   "env": {
     "es6": true,
-    "node": true,
+    "node": true
   },
   "parserOptions": {
     "ecmaVersion": 6,
@@ -21,19 +25,19 @@ module.exports = {
     "parrser": "babel-eslint"
   },
   "rules": {
-    'prefer-const': "error",
-    // "no-undef": "error",
+    "prefer-const": "error",
     "no-constant-condition": "error",
     "no-unreachable": "error",
     "indent": [
       "error",
       2,
       {
-        SwitchCase: 1,
-        ignoredNodes: ['ConditionalExpression'],
-      },
+        "SwitchCase": 1,
+        "ignoredNodes": [
+          "ConditionalExpression"
+        ]
+      }
     ],
-    // "no-duplicate-imports": "error",
     "@typescript-eslint/no-duplicate-imports": "error",
     "no-console": [
       1,
@@ -72,7 +76,6 @@ module.exports = {
         "array": false
       }
     ],
-
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/no-non-null-assertion": 0,
@@ -94,13 +97,6 @@ module.exports = {
     "no-alert": 0,
     "global-require": 0,
     "no-lone-blocks": 0,
-    // "no-unused-vars": [
-    //   "error",
-    //   {
-    //     "vars": "all",
-    //     "args": "none"
-    //   }
-    // ],
     "no-extend-native": 0,
     "import/no-extraneous-dependencies": 0,
     "arrow-body-style": 0,
@@ -127,15 +123,28 @@ module.exports = {
     },
     {
       "files": [
-        '**/*.d.ts'
+        "**/*.d.ts"
       ],
-      rules: {
-        '@typescript-eslint/no-unused-vars': 0,
-        'no-unused-vars': 0,
+      "rules": {
+        "@typescript-eslint/no-unused-vars": 0,
+        "no-unused-vars": 0,
         "no-var": 0
+      }
+    },
+    {
+      "files": [
+        "__tests__/**/*.test.ts",
+        "__tests__/**/*.test.js"
+      ],
+      "plugins": [
+        "jest"
+      ],
+      "extends": [
+        "plugin:jest/recommended"
+      ],
+      "parserOptions": {
+        "jest/globals": true
       }
     }
   ]
 }
-
-

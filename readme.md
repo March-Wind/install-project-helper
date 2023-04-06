@@ -4,4 +4,4 @@ install project helper, include eslint，tslint, jest, commit lint (安装项目
 ### Instructions
 npx @marchyang/project-helper
 
-use laster versoin ,use ```npx --ignore-existing  @marchyang/project-helper```
+use laster versoin ,use ```npx --ignore-existing  @marchyang/project-helper@latest```

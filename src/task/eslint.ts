@@ -17,11 +17,11 @@ const vscode = {
   "eslint.options": {
     "overrideConfigFile": ".eslintrc.cjs"
   },
-  // "css.validate": false,
-  // "less.validate": false,
-  // "scss.validate": false,
-  // "stylelint.validate": ["css", "scss", "less"],
-  // "stylelint.enable": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss", "less"],
+  "stylelint.enable": true,
 }
 
 interface Ctx {
@@ -39,8 +39,8 @@ const tasks = new Listr<Ctx>([
         '@typescript-eslint/parser',
         'markdown-eslint-parser',
         "eslint-config-prettier", // 避免prettier冲突
-        // 'eslint-plugin-react',
-        // 'eslint-plugin-react-hooks',
+        'eslint-plugin-react',
+        'eslint-plugin-react-hooks',
         // 'eslint-plugin-jsx-control-statements',
       ])
     }
