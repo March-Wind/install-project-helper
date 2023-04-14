@@ -1,6 +1,6 @@
 {
     "name": "@marchyang/project-helper",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "",
     "main": "./dist/mian.cjs",
     "bin":"./dist/main.cjs",
