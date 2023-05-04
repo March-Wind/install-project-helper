@@ -14,7 +14,7 @@ const tasks = new Listr<Ctx>([
     }
   },
   {
-    title: 'copy ..stylelintrc file',
+    title: 'copy .stylelintrc file',
     task: () => {
       const prefix = global.CONFIG_FILE_PATH;
       return execa('cp', [path.resolve(prefix, '.stylelintrc.cjs'), process.cwd()])

@@ -1,6 +1,6 @@
 {
     "name": "@marchyang/project-helper",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "",
     "main": "./dist/mian.cjs",
     "bin":"./dist/main.cjs",
@@ -10,7 +10,8 @@
         "dev2": "NODE_ENV=dev ts-node ./src/index.ts",
         "dev:debug": "NODE_ENV=dev node --inspect-brk  --loader ts-node/esm ./src/index.ts",
         "build:js": "npm run clean:lib && tsc && tsc-alias",
-        "build:prod": "NODE_ENV=prod webpack && cp -r ./src/config-file ./dist"
+        "build:prod": "NODE_ENV=prod webpack && cp -r ./src/config-file ./dist",
+        "prepublish":"npm run build:prod"
     },
     "author": "",
     "license": "ISC",
