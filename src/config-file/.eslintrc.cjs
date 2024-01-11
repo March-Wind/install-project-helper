@@ -38,7 +38,7 @@ module.exports = {
         ]
       }
     ],
-    "@typescript-eslint/no-duplicate-imports": "error",
+    "no-duplicate-imports": "error",
     "no-console": [
       1,
       {
