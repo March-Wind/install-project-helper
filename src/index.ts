@@ -7,12 +7,12 @@ import pettierTask from './task/prettier'
 import styleTask from './task/styleint'
 import jestTask from './task/jest';
 import commitLintTask from './task/commit';
-import {moduleType} from './utils'
+import { moduleType } from './utils'
 // const env = process.env.NODE_ENV;
-const _filename = moduleType () === 'esm'? fileURLToPath(import.meta.url): __filename;
+const _filename = moduleType() === 'esm' ? fileURLToPath(import.meta.url) : __filename;
 const _dirname = dirname(_filename);
-const prefix = path.resolve(_dirname,'config-file/' );
-console.log(1,prefix)
+const prefix = path.resolve(_dirname, 'config-file/');
+// console.log(1,prefix)
 interface Ctx {
   /* some variables for internal use */
 }
@@ -34,7 +34,7 @@ const tasks = new Listr<Ctx>([
   {
     title: 'add stylelint',
     task: () => {
-      return  styleTask;
+      return styleTask;
     }
   },
   {
